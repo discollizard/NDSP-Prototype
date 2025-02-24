@@ -1,0 +1,77 @@
+{
+    "11-11-11-11-11-11": {
+        "host_name": "Switch1",
+        "interfaces": {
+            "fa0/1": {
+                "ip_addr": "192.168.0.10",
+                "subnet_mask": "255.255.255.0",
+                "is_up": true
+            },
+            "fa0/2": {
+                "ip_addr": "192.168.0.11",
+                "subnet_mask": "255.255.255.0",
+                "is_up": false
+            },
+            "fa0/3": {
+                "ip_addr": "192.168.0.12",
+                "subnet_mask": "255.255.255.0",
+                "is_up": true
+            },
+            "fa0/4": {
+                "ip_addr": "192.168.0.13",
+                "subnet_mask": "255.255.255.0",
+                "is_up": true
+            }
+        }
+    },
+    "22-22-22-22-22-22": {
+        "host_name": "Switch2",
+        "interfaces": {
+            "fa0/1": {
+                "ip_addr": "192.168.1.10",
+                "subnet_mask": "255.255.255.0",
+                "is_up": true
+            },
+            "fa0/2": {
+                "ip_addr": "192.168.1.11",
+                "subnet_mask": "255.255.255.0",
+                "is_up": true
+            },
+            "fa0/3": {
+                "ip_addr": "192.168.1.12",
+                "subnet_mask": "255.255.255.0",
+                "is_up": false
+            },
+            "fa0/4": {
+                "ip_addr": "192.168.1.13",
+                "subnet_mask": "255.255.255.0",
+                "is_up": true
+            }
+        }
+    },
+    "33-33-33-33-33-33": {
+        "host_name": "Switch3",
+        "interfaces": {
+            "fa0/1": {
+                "ip_addr": "192.168.2.10",
+                "subnet_mask": "255.255.255.0",
+                "is_up": false
+            },
+            "fa0/2": {
+                "ip_addr": "192.168.2.11",
+                "subnet_mask": "255.255.255.0",
+                "is_up": true
+            },
+            "fa0/3": {
+                "ip_addr": "192.168.2.12",
+                "subnet_mask": "255.255.255.0",
+                "is_up": true
+            },
+            "fa0/4": {
+                "ip_addr": "192.168.2.13",
+                "subnet_mask": "255.255.255.0",
+                "is_up": false
+            }
+        }
+    }
+}
