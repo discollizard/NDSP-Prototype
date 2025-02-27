@@ -1,0 +1,50 @@
+{
+    "11-11-11-11-11-11": {
+        "host_name": "PC1",
+        "type": "endpoint",
+        "interfaces": {
+            "fa0/1": {
+                "ipv4_addr": "192.168.2.12",
+                "subnet_mask": "255.255.255.0",
+                "dns_server": "127.0.0.1",
+                "is_up": false
+            }
+        }
+    },
+    "22-22-22-22-22-22": {
+        "host_name": "PC2",
+        "type": "endpoint",
+        "interfaces": {
+            "fa0/1": {
+                "ipv4_addr": "192.168.2.12",
+                "subnet_mask": "255.255.255.0",
+                "dns_server": "127.0.0.1",
+                "is_up": false
+            }
+        }
+    },
+    "33-33-33-33-33-33": {
+        "host_name": "PC3",
+        "type": "endpoint",
+        "interfaces": {
+            "fa0/1": {
+                "ipv4_addr": "192.168.2.11",
+                "subnet_mask": "255.255.255.0",
+                "dns_server": "127.0.0.1",
+                "is_up": false
+            }
+        }
+    },
+    "44-44-44-44-44-44": {
+        "host_name": "PC4",
+        "type": "endpoint",
+        "interfaces": {
+            "fa0/1": {
+                "ipv4_addr": "192.168.2.10",
+                "subnet_mask": "255.255.255.0",
+                "dns_server": "127.0.0.1",
+                "is_up": false
+            }
+        }
+    }
+}

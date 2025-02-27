@@ -1,10 +1,14 @@
-class NDCPNode:
+class NDCPBaseNode:
     def __init__(self, mac):
         self.visited = False
         self.mac_addr = mac
         self.host_name = None
         self.interfaces = {}
+        # maybe broadcast instead of having specific fixed adjacent nodes in implementation
         self.adjacent_nodes = []
+        self.base_fields = [
+            'is_up'
+        ]
     
     def forward_msg(self, node, msg):
         if node.visited is True:
@@ -19,9 +23,9 @@ class NDCPNode:
             for interface_id in localInterfaceKeys:
                 interface_to_set = msg[node.mac_addr]['interfaces'].get(interface_id)
                 if  interface_to_set != None:
-                    node.interfaces[interface_id]['ip_addr'] =  msg[node.mac_addr]['interfaces'][interface_id]['ip_addr']
-                    node.interfaces[interface_id]['subnet_mask'] =  msg[node.mac_addr]['interfaces'][interface_id]['subnet_mask']
-                    node.interfaces[interface_id]['is_up'] =  msg[node.mac_addr]['interfaces'][interface_id]['is_up']
+                    for field in node.base_fields:
+                        node.interfaces[interface_id][field] =  msg[node.mac_addr]['interfaces'][interface_id][field]
+
         for adj_node in node.adjacent_nodes:
             if not adj_node.visited:
                 node.forward_msg(adj_node, msg)

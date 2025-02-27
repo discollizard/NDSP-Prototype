@@ -1,5 +1,5 @@
 import json
-from ndcp_node import NDCPNode
+from ndcp_node import NDCPBaseNode
 
 # node1 = NDCPNode("11-11-11-11-11-11")
 # node2 = NDCPNode("22-22-22-22-22-22")

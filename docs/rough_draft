@@ -1,0 +1,26 @@
+type ipv4_string = string => /[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/
+
+base node: 
+<device_mac: string> {
+    type: "router" | "switch" | "endpoint",
+    host_name: string,
+    interfaces: {
+        <interface_id: string>: {
+            is_up: bool,
+        }
+    },
+}
+
+Routers and endpoints:
+<device_mac: string> {
+    ...base node,
+    interfaces: {
+        <interface_id: string>: {
+            ...base node,
+            ipv4_addr: ipv4_string | "dhcp",
+            subnet_mask: ipv4_string | "dhcp",
+            default_gateway: ipv4_string | "dhcp",
+            dns_server: ipv4_string | "dhcp",
+        }
+    },
+}

@@ -3,8 +3,8 @@
         "host_name": "Switch1",
         "interfaces": {
             "fa0/1": {
-                "ip_addr": "192.168.0.10",
-                "subnet_mask": "255.255.255.0",
+                "ip_addr": "192.168.0.15",
+                "subnet_mask": "255.255.255.128",
                 "is_up": true
             },
             "fa0/2": {
