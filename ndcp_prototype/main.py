@@ -1,5 +1,24 @@
 import json
-from ndcp_node import NDCPBaseNode
+from VM.vm import VM
+from VM.interface import Interface
+
+interfaceVM1 = Interface("01-12-23-34-45-65")
+interfaceVM2 = Interface("ae-ff-01-fc-12-23")
+
+vm1 = VM()
+interfaceVM1.bind_to_vm(vm1)
+
+vm2 = VM()
+interfaceVM2.bind_to_vm(vm2)
+
+vm1.interfaces[0].connect_to_neighbor(vm2.interfaces[0])
+
+with open("../tests/cases/two_way.json", 'r') as file:
+    data = json.load(file)
+
+    vm1.send(vm1.interfaces[0], data)
+    print("\n\n\n vm2 buffer \n\n\n", vm2.memory_buffer)
+    
 
 # node1 = NDCPNode("11-11-11-11-11-11")
 # node2 = NDCPNode("22-22-22-22-22-22")
