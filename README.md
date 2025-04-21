@@ -3,14 +3,13 @@ A prototype for an open protocol designed to automatically configure network dev
 
 ## Basic overview
 ### Format
-The format used is a JSON object indexed by MAC addresses, in which a network device can access its settings in constant time, and configure itself based on the specs received.
+The format used is a JSON object indexed by MAC addresses, in which a network device can access its settings directly, and configure itself based on the specs received.
 
 ### Example
 
 ```
 {
     "11-11-11-11-11-11": {
-        "host_name": "Router1",
         "type": "router",
         "interfaces": {
             "fa0/1": {
@@ -31,4 +30,13 @@ The format used is a JSON object indexed by MAC addresses, in which a network de
 ```
 
 ## About the prototype
-Is is written in Python and it uses a graph data structure to emulate the behaviour of devices inside a network. There are no platform-specific implementations yet. All the settings are portrayed as state inside the VM and Interface classes.
+It is written in Python, and it simulates the behaviour of devices inside a network. There are no platform-specific
+implementations yet. As of now, All the machines' settings are portrayed as state inside the VM and Interface classes.
+
+## Next steps
+- Address name resolution;
+- Implement the VM and interface settings mutation logic;
+- Address security;
+- Address message splitting (whole network vs single updates);
+- Address implementation;
+- Address extended options (router and switching stuff);
