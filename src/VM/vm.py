@@ -3,14 +3,29 @@ class VM:
         self.interfaces = []
         self.neighbor_interfaces = []
         self.memory_buffer = None
+        self.name = ""
 
     def set_vm_name(self, name):
         self.name = name
 
-    def bind_to_interface(interface):
-        self.neighbor_interfaces.append(interface)
+    def bind_to_interface(self, interface):
+        interface.bind_to_vm(self)
+        self.interfaces.append(interface)
 
-    def send(self, source_interface, message):
+    def connect_interface_to_neighbor(self, interface_index, pair_interface):
+        if interface_index < 0:
+            raise IndexError("Interface index is less than 0")
+
+        if interface_index >= len(self.interfaces):
+            raise IndexError("Interface not found by index")
+
+        self.interfaces[interface_index].connect_to_neighbor(pair_interface)
+        self.neighbor_interfaces.append(pair_interface)
+
+    def send(self, message, source_interface=None):
+        if source_interface is None:
+            source_interface = self.interfaces[0]
+
         source_interface.send(message)
 
     # def send_message_unicast(self, source_interface, message, destination_ip):

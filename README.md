@@ -16,11 +16,13 @@ The format used is a JSON object indexed by MAC addresses, in which a network de
             "fa0/1": {
                 "ip_addr": "192.168.0.10",
                 "subnet_mask": "255.255.255.0",
+                "dns_server": "192.168.2.1",
                 "is_up": true
             },
             "fa0/2": {
                 "ip_addr": "192.168.0.11",
                 "subnet_mask": "255.255.255.0",
+                "dns_server": "192.168.2.1",
                 "is_up": true
             }
         }
@@ -29,4 +31,4 @@ The format used is a JSON object indexed by MAC addresses, in which a network de
 ```
 
 ## About the prototype
-Is is written in Python and it uses a graph data structure to emulate the behaviour of devices inside a network. There are no platform-specific implementations yet. All the settings are portrayed as state inside the NDCPNode classes.
+Is is written in Python and it uses a graph data structure to emulate the behaviour of devices inside a network. There are no platform-specific implementations yet. All the settings are portrayed as state inside the VM and Interface classes.
