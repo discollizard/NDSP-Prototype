@@ -61,7 +61,7 @@ def test_interpret(mock_vm, two_way_params):
     # Sending data
 
 # Test send method (with error handling)
-def test_send(mock_vm, mock_vm2):
+def test_send(mock_vm, mock_vm2, two_way_params):
     with pytest.raises(IndexError):
         mock_vm.connect_interface_to_neighbor(-1, mock_vm2.interfaces[0])
         mock_vm.connect_interface_to_neighbor(1, mock_vm2.interfaces[0])
@@ -70,5 +70,5 @@ def test_send(mock_vm, mock_vm2):
     mock_vm.connect_interface_to_neighbor(0, mock_vm2.interfaces[0])
 
     # Sending data
-    mock_vm.send("test")
-    assert mock_vm2.memory_buffer == "test"
+    mock_vm.send(two_way_params)
+    assert mock_vm2.memory_buffer == two_way_params

@@ -34,8 +34,7 @@ It is written in Python, and it simulates the configuration of devices inside a 
 implementations yet. As of now, All the machines' settings are portrayed as state inside the VM and Interface classes.
 
 ## Next steps
-~~Address name resolution on the sending VM;~~
-- Address name resolution on the receiving VM;
+~~Address name resolution entries;~~
 - Address documentation of classes;
 - Implement the VM and interface settings mutation logic;
 - Address security;

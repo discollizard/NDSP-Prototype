@@ -30,4 +30,6 @@ class Interface:
         self.neighbor.receive(message)
 
     def receive(self, message):
-        self.vm.memory_buffer = message
+        self.vm.load_message(message)
+        # self.interpret() // interpret settings at interface level
+        self.vm.interpret()

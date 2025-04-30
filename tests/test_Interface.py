@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 import pytest
 import re
 
@@ -32,28 +35,44 @@ def test_bind_to_vm(vm_instance, mock_interface):
     mock_interface.bind_to_vm(vm_instance)
     assert mock_interface.vm is vm_instance
 
+@pytest.fixture
+def two_way_params():
+    config_path = Path("tests/cases/two_way.json")
+    with open(config_path) as f:
+        return json.load(f)
+
 #Test binding IP address to interface
 def test_set_ip(mock_interface):
     ip = "192.168.0.2"
     mock_interface.set_ip(ip)
     assert mock_interface.ip is "192.168.0.2"
 
-#Test connection to a neighbor
 def test_connect_to_neighbor(mock_interface, mock_neighbor_interface):
     mock_interface.connect_to_neighbor(mock_neighbor_interface)
     assert mock_interface.neighbor is mock_neighbor_interface
 
-#Test message sending
-def test_send(mock_interface, mock_neighbor_interface, vm_instance):
+def test_send(mock_interface, mock_neighbor_interface, vm_instance, two_way_params):
     mock_neighbor_interface.bind_to_vm(vm_instance)
     mock_interface.connect_to_neighbor(mock_neighbor_interface)
 
-    mock_interface.send("test")
-    assert mock_neighbor_interface.vm.memory_buffer is "test"
+    mock_interface.send(two_way_params)
+    assert mock_neighbor_interface.vm.memory_buffer == two_way_params
 
-#Test message receival
-def test_receive(mock_interface, vm_instance):
+def test_send_invalid(mock_interface, mock_neighbor_interface, vm_instance):
+    mock_neighbor_interface.bind_to_vm(vm_instance)
+    mock_interface.connect_to_neighbor(mock_neighbor_interface)
+
+    with pytest.raises(Exception):
+        mock_interface.send("test")
+
+def test_receive(mock_interface, vm_instance, two_way_params):
     mock_interface.bind_to_vm(vm_instance)
 
-    mock_interface.receive("receive")
-    assert mock_interface.vm.memory_buffer is "receive"
+    mock_interface.receive(two_way_params)
+    assert mock_interface.vm.memory_buffer == two_way_params
+
+def test_receive_invalid(mock_interface, vm_instance):
+    mock_interface.bind_to_vm(vm_instance)
+
+    with pytest.raises(Exception):
+        mock_interface.receive("test")
