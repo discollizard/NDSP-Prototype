@@ -8,6 +8,13 @@
                 "subnet_mask": "255.255.255.0",
                 "dns_server": "192.168.2.1",
                 "is_up": false
+            },
+            "fa0/2": {
+                "host_name": "server.test",
+                "ipv4_addr": "192.168.2.12",
+                "subnet_mask": "255.255.255.0",
+                "dns_server": "192.168.2.1",
+                "is_up": false
             }
         }
     },
@@ -16,6 +23,7 @@
         "type": "endpoint",
         "interfaces": {
             "fa0/1": {
+                "host_name": "web.test",
                 "ipv4_addr": "192.168.2.15",
                 "subnet_mask": "255.255.255.0",
                 "dns_server": "192.168.2.1",

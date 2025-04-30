@@ -1,7 +1,10 @@
+from src.SettingsTypes import SettingsTypes
+
 class VM:
     def __init__(self):
         self.interfaces = []
         self.neighbor_interfaces = []
+        self.domain_name_mappings = {}
         self.memory_buffer = None
         self.name = ""
 
@@ -22,10 +25,26 @@ class VM:
         self.interfaces[interface_index].connect_to_neighbor(pair_interface)
         self.neighbor_interfaces.append(pair_interface)
 
+    def load_message(self, message):
+        self.memory_buffer = message
+
+    def interpret(self):
+        host_settings = self.memory_buffer.values()
+        for setting in host_settings:
+            # set other host stuff here...
+            if not setting["interfaces"]:
+                pass
+            interface_settings = setting["interfaces"].values()
+            for param in interface_settings:
+
+                #set other interface stuff here
+
+                # name bindings
+                SettingsTypes.interpret_dns_params(self, param)
+
     def send(self, message, source_interface=None):
         if source_interface is None:
             source_interface = self.interfaces[0]
-
         source_interface.send(message)
 
     # def send_message_unicast(self, source_interface, message, destination_ip):
@@ -42,8 +61,3 @@ class VM:
     #         return
     
     #     source_interface.send(message, destination_interface)
-
-
-
-
-        

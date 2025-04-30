@@ -4,13 +4,13 @@ type mac_address = string => ff-ff-ff-ff-ff-ff
 Base message:
 <device_mac: string> {
     type: "router" | "switch" | "endpoint",
-    host_name: string,
     interfaces: {
         <interface_id: mac_address>: {
-            "ip_addr": ipv4_string | "dhcp",
-            "subnet_mask": ipv4_string | "dhcp",
-            "dns_server": ipv4_string | "dhcp",
-            "is_up": bool
+            host_name: string,
+            ip_addr: ipv4_string | "dhcp",
+            subnet_mask: ipv4_string | "dhcp",
+            dns_server: ipv4_string | "dhcp",
+            is_up: bool
         }
     },
 }

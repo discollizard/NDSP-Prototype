@@ -16,6 +16,8 @@ vm1.interfaces[0].connect_to_neighbor(vm2.interfaces[0])
 with open("../tests/cases/two_way.json", 'r') as file:
     data = json.load(file)
 
+    vm1.load_message(data)
+    vm1.interpret()
     vm1.send(vm1.interfaces[0], data)
     print("\n\n\n vm2 buffer \n\n\n", vm2.memory_buffer)
     
