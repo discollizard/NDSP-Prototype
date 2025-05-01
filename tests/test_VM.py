@@ -72,3 +72,8 @@ def test_send(mock_vm, mock_vm2, two_way_params):
     # Sending data
     mock_vm.send(two_way_params)
     assert mock_vm2.memory_buffer == two_way_params
+
+def test_flush_memory(mock_vm):
+    mock_vm.load_message("test")
+    mock_vm.flush_memory()
+    assert mock_vm.memory_buffer is None

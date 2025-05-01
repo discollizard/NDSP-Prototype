@@ -1,25 +1,52 @@
-import json
-from VM.vm import VM
-from VM.interface import Interface
+# import json
+# from VM.vm import VM
+# from VM.interface import Interface
 
-interfaceVM1 = Interface("01-12-23-34-45-65")
-interfaceVM2 = Interface("ae-ff-01-fc-12-23")
+"""
+Network Device Settings Protocol (NDSP) Prototype Environment
+=======================================
 
-vm1 = VM()
-interfaceVM1.bind_to_vm(vm1)
+This project simulates network devices and their interactions using Python virtual machines;
+it allows creation of virtual network topologies and message passing between nodes as well as modifications to their own configurations.
 
-vm2 = VM()
-interfaceVM2.bind_to_vm(vm2)
+This prototype environment was built to aid in the creation of the Network Device Settings Protocol (NDSP).
 
-vm1.interfaces[0].connect_to_neighbor(vm2.interfaces[0])
+For running tests, execute:
+    pytest ../tests/
 
-with open("../tests/cases/two_way.json", 'r') as file:
-    data = json.load(file)
+"""
 
-    vm1.load_message(data)
-    vm1.interpret()
-    vm1.send(vm1.interfaces[0], data)
-    print("\n\n\n vm2 buffer \n\n\n", vm2.memory_buffer)
+print("""
+Network Device Settings Protocol (NDSP) Prototype Environment
+=======================================
+
+This project simulates network devices and their interactions using Python virtual machines;
+it allows creation of virtual network topologies and message passing between nodes as well as modifications to their own configurations.
+
+This prototype environment was built to aid in the creation of the Network Device Settings Protocol (NDSP).
+
+For running tests, execute:
+    pytest ../tests/
+""")
+
+# interfaceVM1 = Interface("01-12-23-34-45-65")
+# interfaceVM2 = Interface("ae-ff-01-fc-12-23")
+#
+# vm1 = VM()
+# interfaceVM1.bind_to_vm(vm1)
+#
+# vm2 = VM()
+# interfaceVM2.bind_to_vm(vm2)
+#
+# vm1.interfaces[0].connect_to_neighbor(vm2.interfaces[0])
+#
+# with open("../tests/cases/two_way.json", 'r') as file:
+#     data = json.load(file)
+#
+#     vm1.load_message(data)
+#     vm1.interpret()
+#     vm1.send(vm1.interfaces[0], data)
+#     print("\n\n\n vm2 buffer \n\n\n", vm2.memory_buffer)
     
 
 # node1 = NDCPNode("11-11-11-11-11-11")
