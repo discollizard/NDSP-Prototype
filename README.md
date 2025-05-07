@@ -35,8 +35,8 @@ implementations yet. As of now, All the machines' settings are portrayed as stat
 
 ## Next steps
 ~~Address name resolution entries;~~
-- Address documentation of classes;
-- Implement the VM and interface settings mutation logic;
+~~Address documentation of classes;~~
+~~Implement the VM and interface settings mutation logic;~~
 - Address security;
 - Address message splitting (whole network vs single updates);
 - Address implementation;

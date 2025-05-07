@@ -8,14 +8,14 @@ from pathlib import Path
 @pytest.fixture
 def mock_vm():
     vm = VM()
-    interface1 = Interface("11-11-11-11-11-11")
+    interface1 = Interface("11-11-11-11-11-11", name="eth0")
     vm.bind_to_interface(interface1)
     return vm
 
 @pytest.fixture
 def mock_vm2():
     vm2 = VM()
-    interface_vm2 = Interface("ae-ff-01-fc-12-23")
+    interface_vm2 = Interface("ae-ff-01-fc-12-23", name="eth0")
     vm2.bind_to_interface(interface_vm2)
     return vm2
 
@@ -39,11 +39,6 @@ def test_init():
 def test_load_message(mock_vm, two_way_params):
     mock_vm.load_message(two_way_params)
     assert mock_vm.memory_buffer == two_way_params
-
-# Test setting VM name
-def test_set_vm_name(mock_vm):
-    mock_vm.set_vm_name("Test 1")
-    assert mock_vm.name == "Test 1"
 
 # Test binding interface to VM
 def test_bind_to_interface(mock_vm):

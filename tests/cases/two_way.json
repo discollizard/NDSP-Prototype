@@ -2,18 +2,18 @@
     "01-12-23-34-45-65": {
         "host_name": "PC1",
         "type": "endpoint",
+        "dns_server": "192.168.2.1",
         "interfaces": {
-            "fa0/1": {
+            "eth1": {
                 "ipv4_addr": "192.168.2.12",
+                "default_gateway": "192.168.2.1",
                 "subnet_mask": "255.255.255.0",
-                "dns_server": "192.168.2.1",
-                "is_up": false
+                "is_up": true
             },
-            "fa0/2": {
+            "eth0": {
                 "host_name": "server.test",
                 "ipv4_addr": "192.168.2.12",
                 "subnet_mask": "255.255.255.0",
-                "dns_server": "192.168.2.1",
                 "is_up": false
             }
         }
@@ -22,11 +22,10 @@
         "host_name": "PC2",
         "type": "endpoint",
         "interfaces": {
-            "fa0/1": {
+            "eth0": {
                 "host_name": "web.test",
                 "ipv4_addr": "192.168.2.15",
                 "subnet_mask": "255.255.255.0",
-                "dns_server": "192.168.2.1",
                 "is_up": false
             }
         }
